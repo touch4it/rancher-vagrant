@@ -1,0 +1,8 @@
+version: '2'
+services:
+  test-nginx:
+    image: nginx
+    expose:
+      - 80
+    ports:
+      - "80:80"

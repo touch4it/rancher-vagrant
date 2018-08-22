@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: vagrant
+
+  tasks:
+
+  - name: Install common apps
+    apt: name={{item}} update_cache=yes
+    with_items:
+     - vim
+     - htop
+     - tree
+     - curl
+     - wget
+     - python-pip
+    become: true

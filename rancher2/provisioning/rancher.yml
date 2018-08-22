@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: vagrant
+
+  tasks:
+
+  - name: create /opt/volumes/rancher
+    file:
+      path: /opt/volumes/rancher
+      state: directory
+      mode: 0755
+    become: true
+
+  - name: start rancher-server
+    command: docker run -d --name rancher-server --restart=unless-stopped -p 8080:8080 -p 9345:9345 rancher/server --db-host 192.168.70.10 --db-port 3306 --db-user rancher --db-pass rancher --db-name rancher --advertise-address 192.168.70.12
+    become: true

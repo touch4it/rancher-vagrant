@@ -1,0 +1,4 @@
+---
+- import_playbook: common.yml
+- import_playbook: docker.yml
+- import_playbook: mysql-nginx.yml

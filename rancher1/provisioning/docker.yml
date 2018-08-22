@@ -1,0 +1,37 @@
+---
+- hosts: all
+  gather_facts: no
+  remote_user: vagrant
+
+  tasks:
+
+  - apt:
+      update_cache: yes
+    become: true
+
+  - apt: name={{item}} update_cache=yes
+    with_items:
+     - apt-transport-https
+     - ca-certificates
+     - curl
+     - software-properties-common
+    become: true
+
+  - shell: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -"
+    become: true
+
+  - command: add-apt-repository "deb https://download.docker.com/linux/debian stretch stable"
+    become: true
+
+  - apt:
+      update_cache: yes
+    become: true
+
+  - command: "apt-get install -y docker-ce=17.03.2~ce-0~debian-stretch"
+    become: true
+
+  - command: apt-mark hold docker-ce
+    become: true
+
+  - command: usermod -aG docker vagrant
+    become: true
