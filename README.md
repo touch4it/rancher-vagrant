@@ -1,7 +1,7 @@
 # Rancher server + agent in HA playground
 
 Rancher server & rancher agent in high availability on local environment with vagrant & virtualbox.
-Readme is written for osx/linux, you might need to do some steps in your platfomr way to run it.
+Readme is written for osx/linux, you might need to do some steps in your platfomr way to run it. See full tutorial about this repository here -> https://medium.com/touch4it/rancher-server-rancher-agent-in-high-availability-on-local-environment-with-vagrant-virtualbox-5d7ee913ad07
 
 ## Requirements
 
